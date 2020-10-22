@@ -6,6 +6,8 @@ import { Header } from './components/header';
 import 'bootstrap/dist/css/bootstrap.min.css'; //import Bootstrap
 import { Navbar, Nav } from 'react-bootstrap'; //import Navbar
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";//import Router Switch & Route
+import { Create } from './components/create';
+import { Read } from './components/read';
 //Class "App" inherits from react.component
 class App extends React.Component {
   render() {
@@ -26,10 +28,10 @@ class App extends React.Component {
           <Switch>
             {/* //links Home to component Content */}
             <Route path='/' component={Content} exact></Route>
-            {/* //links sport to component Header */}
-            <Route path='/sport' component={Header}></Route>
+            {/* //links sport to component Create */}
+            <Route path='/sport' component={Create}></Route>
             {/* //links travel to component Footer */}
-            <Route path='/travel' component={Footer}></Route>
+            <Route path='/travel' component={Read}></Route>
           </Switch>
 
           {/* <Header></Header>
