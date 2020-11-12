@@ -12,11 +12,11 @@ export class Read extends React.Component {
     }
 
     componentDidMount() {
-        //get data url from web
-        axios.get('https://jsonblob.com/api/jsonblob/520c3b5e-0312-11eb-a6af-cbf00d776032')
+        //get data url from server
+        axios.get('http://localhost:4000/api/movies')
             //responds to url web and put data pulled from web in movie array
             .then(
-                (response) => { this.setState({ movies: response.data.Search }) }
+                (response) => { this.setState({ movies: response.data.movies }) }
             )
             //if error occurs log error to console
             .catch((error) => { console.log(error) });

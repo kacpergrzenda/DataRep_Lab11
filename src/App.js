@@ -20,8 +20,8 @@ class App extends React.Component {
             <Navbar.Brand href="/">Navbar</Navbar.Brand>
             <Nav className="mr-auto">
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/sport">Sport</Nav.Link>
-              <Nav.Link href="/travel">Pricing</Nav.Link>
+              <Nav.Link href="/sport">Create</Nav.Link>
+              <Nav.Link href="/travel">Read</Nav.Link>
             </Nav>
           </Navbar>
           {/* Switch through Navigation Bar */}
