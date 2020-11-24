@@ -67,7 +67,7 @@ app.get('/api/movies', (req, res) => {
     // });
 })
 //gets movie by id and than responds with object data
-app.get('/api/movies/:id', (req,res) => {
+app.get('/api/movies/:id', (req, res) => {
     console.log(req.params.id);
 
     MovieModel.findById(req.params.id, (err, data) => {
@@ -85,12 +85,21 @@ app.post('/api/movies', (req, res) => {
 
 
     MovieModel.create({
-        title:req.body.title,
-        year:req.body.year,
-        poster:req.body.poster
+        title: req.body.title,
+        year: req.body.year,
+        poster: req.body.poster
     })
 
     res.send('Item Added');
+})
+
+//finds the movie by Id and deletes the movie by finding it by its id
+app.delete('/api/movies/:id', (req, res) => {
+    console.log("Delete Movie: " + req.params.id)
+
+    MovieModel.findByIdAndDelete(req.params.id, (err, data) => {
+        res.send(data);
+    })
 })
 
 app.listen(port, () => {
