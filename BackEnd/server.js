@@ -61,11 +61,8 @@ app.get('/api/movies', (req, res) => {
     MovieModel.find((err, data) => {
         res.json(data);
     })
-    // res.status(200).json({
-    //     message: "Everything is ok",
-    //     movies: mymovies
-    // });
 })
+
 //gets movie by id and than responds with object data
 app.get('/api/movies/:id', (req, res) => {
     console.log(req.params.id);
@@ -75,6 +72,16 @@ app.get('/api/movies/:id', (req, res) => {
     })
 })
 
+app.put('/api/movies/:id', (req,res) => {
+    console.log("Update movie "+ req.params.id);
+    console.log(req.body);
+
+    //its going to find a movie record by id and it is going to update it
+    MovieModel.findByIdAndUpdate(req.params.id,req.body, {new:true},
+        (err,data) =>{
+            res.send(data);
+        })
+})
 
 //listen to server port end send this to client
 app.post('/api/movies', (req, res) => {

@@ -8,6 +8,7 @@ import { Navbar, Nav } from 'react-bootstrap'; //import Navbar
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";//import Router Switch & Route
 import { Create } from './components/create';
 import { Read } from './components/read';
+import { Edit } from './components/edit';
 //Class "App" inherits from react.component
 class App extends React.Component {
   render() {
@@ -32,6 +33,7 @@ class App extends React.Component {
             <Route path='/sport' component={Create}></Route>
             {/* //links travel to component Footer */}
             <Route path='/travel' component={Read}></Route>
+            <Route path='/edit/:id' component={Edit}></Route>
           </Switch>
 
           {/* <Header></Header>
