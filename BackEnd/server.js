@@ -4,6 +4,7 @@ const port = 4000 //server running on this domain
 const cors = require('cors');
 const bodyParser = require('body-parser');//import body parser
 const mongoose = require('mongoose');//import mongoose
+const path = require('path');//import path
 
 app.use(cors());
 //resource sharing with other domains
@@ -14,6 +15,10 @@ app.use(function (req, res, next) {
         "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
+//lines for configuration telling where the build & static folder is
+app.use(express.static(path.join(__dirname, '../build')))
+app.use('/static', express.static(path.join(__dirname, 'build//static')))
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -109,6 +114,12 @@ app.delete('/api/movies/:id', (req, res) => {
     })
 })
 
+//for any root point send fild to this path
+app.get('*', (req,res) => {
+    res.sendFile(path.join(__dirname+'/../build/index.html'));
+})
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
+
